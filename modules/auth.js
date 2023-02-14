@@ -6,7 +6,7 @@ const userSchema = mongoose.Schema({
     password :{type:String, required:true},
     about :{type:String},
     tags :{type:[String]},
-    joinedOn :{type:String, default:Date.now}
+    joinedOn :{type:Date, default:Date.now}
 })
 
 export default mongoose.model("User",userSchema)

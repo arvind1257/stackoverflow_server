@@ -40,3 +40,26 @@ export const login = async(req,res) => {
         console.log(err+" controllers")
     }
 } 
+
+export const getAllUsers = async(req,res) => {
+    try{
+        const allUsers = await User.find();
+        res.status(200).json(allUsers)
+    }
+    catch(err){
+        console.log(err+" controllers")
+    }
+} 
+
+export const updateUser = async(req,res) => {
+    const { id:_id } = req.params;
+    console.log(_id);
+    const { name, about, tags } = req.body;
+    try{
+        const updateUser = await User.findByIdAndUpdate(_id,{$set:{'name':name,'about':about,'tags':tags}},{new:true})
+        res.status(200).json({result:updateUser})
+    }
+    catch(err){
+        console.log(err)
+    }
+}
