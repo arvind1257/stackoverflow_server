@@ -1,4 +1,5 @@
 import Questions from "../modules/Questions.js"
+import {updateSubscription} from "./Subscription.js"
 import mongoose from "mongoose"
 
 export const AskQuestion = async(req,res) => {
@@ -6,7 +7,8 @@ export const AskQuestion = async(req,res) => {
     const postQuestion = new Questions({...postQuestionData});
     try{
         await postQuestion.save();
-        res.status(200).json("Posted a question successfully")
+        updateSubscription(req,res)
+        //res.status(200).json("Posted a question successfully")
     }
     catch(err){
         console.log(err);
