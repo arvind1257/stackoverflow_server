@@ -50,7 +50,6 @@ export const login = async(req,res) => {
                 ex = await User.findByIdAndUpdate(ex._id,{$set :{'Questions':{'noOfPost':questions,'postDate':new Date()}}},{new:true})
             }
         }
-        console.log(ex)
         const token = Jwt.sign({ email:ex.email,id:ex._id},"test",{expiresIn:"1h"})
         res.status(200).json({result:ex._id,token})
     }
@@ -71,7 +70,6 @@ export const getAllUsers = async(req,res) => {
 
 export const updateUser = async(req,res) => {
     const { id:_id } = req.params;
-    console.log(_id);
     const { name, about, tags } = req.body;
     try{
         await User.findByIdAndUpdate(_id,{$set:{'name':name,'about':about,'tags':tags}},{new:true})
@@ -104,10 +102,6 @@ const checkDate = (date1,date2,no) =>{
     date2.setMilliseconds(0)
     date2.setSeconds(0)
     date2.setMinutes(0)
-    console.log(date1)
-    console.log(date2)
-    console.log((date2.getTime()-date1.getTime())/(1000*60*60*24))
     if((date2.getTime()-date1.getTime())/(1000*60*60*24)>=no) return true;
     else return false;
-
 }

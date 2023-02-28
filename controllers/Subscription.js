@@ -2,7 +2,6 @@ import User from "../modules/auth.js"
 
 export const postSubscription = async(req,res) => {
     const {_id,type,receipt,noOfQuestions} = req.body;
-    console.log({_id,type,receipt,noOfQuestions})
     try{
         const Users = await User.findByIdAndUpdate(_id,{$set : {'type':type,'Questions':{'noOfPost':noOfQuestions,'postDate':new Date()},'paymentReceipt':{'receipt':receipt,'month':new Date()}}},{new:true})
         res.status(200).json({result:Users})

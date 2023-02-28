@@ -15,7 +15,7 @@ const userSchema = mongoose.Schema({
         noOfPost:{type:Number,default:1},
         postDate:{type:Date,default:new Date()},
     },
-    frineds:[{
+    friends:[{
         userId:{type:String}
     }],
     joinedOn :{type:Date, default:Date.now}
