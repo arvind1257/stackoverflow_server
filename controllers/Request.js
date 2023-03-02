@@ -1,6 +1,5 @@
 import friendRequest from "../modules/friendRequest.js"
 import User from "../modules/auth.js"
-import mongoose from "mongoose"
 
 export const requestSend = async(req,res) => {
     const {fromId,toId,status} = req.body
@@ -38,14 +37,26 @@ export const requestDelete = async(req,res) => {
 
 export const requestAccept = async(req,res) => {
     const {_id:id,fromId,toId} = req.body
-    console.log({_id:id,fromId,toId})
     try{
+        var _id = id
         await friendRequest.findByIdAndRemove( _id )
-        var _id = fromId
+        _id = fromId
         await User.findByIdAndUpdate(_id,{$addToSet:{"friends":[{"userId":toId}]}})
         _id = toId
         await User.findByIdAndUpdate(_id,{$addToSet:{"friends":[{"userId":fromId}]}})
         res.status(200).json("Added successfully")
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+
+export const requestRemove = async(req,res) => {
+    const {fromId,toId} = req.body
+    try{
+        await User.updateOne({_id:fromId},{$pull:{"friends":{"userId":toId}}})
+        await User.updateOne({_id:toId},{$pull:{"friends":{"userId":fromId}}})
+        res.status(200).json("Removed successfully")
     }
     catch(err){
         console.log(err);
