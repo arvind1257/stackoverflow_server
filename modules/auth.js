@@ -18,7 +18,7 @@ const userSchema = mongoose.Schema({
     friends:[{
         userId:{type:String}
     }],
-    joinedOn :{type:Date, default:Date.now}
+    joinedOn :{type:Date, default:new Date()}
 })
 
 export default mongoose.model("User",userSchema)

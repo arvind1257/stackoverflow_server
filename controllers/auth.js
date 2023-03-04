@@ -17,7 +17,7 @@ export const signup = async(req,res) => {
         res.status(200).json({message:"Thank You, You have successfully registered",status:"Success",result:newUser,token})
     } 
     catch(err){
-        console.log(err+" controllers")
+        console.log(err)
     }
 }
 
@@ -54,7 +54,7 @@ export const login = async(req,res) => {
         res.status(200).json({result:ex._id,token})
     }
     catch(err){
-        console.log(err+" controllers")
+        console.log(err)
     }
 } 
 
@@ -64,7 +64,7 @@ export const getAllUsers = async(req,res) => {
         res.status(200).json(allUsers)
     }
     catch(err){
-        console.log(err+" controllers")
+        console.log(err)
     }
 } 
 
