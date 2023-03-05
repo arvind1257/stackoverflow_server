@@ -18,6 +18,7 @@ const userSchema = mongoose.Schema({
     friends:[{
         userId:{type:String}
     }],
+    otp:{type:String},
     joinedOn :{type:Date, default:new Date()}
 })
 
