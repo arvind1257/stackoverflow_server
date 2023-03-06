@@ -46,7 +46,6 @@ export const uploadMedia = async(req,res) => {
 const uploadFile = async (fileObject) => {
     const bufferStream = new Stream.PassThrough();
     bufferStream.end(fileObject[0].buffer);
-    console.log(fileObject[0])
     const { data } = await google.drive({ version: "v3", auth }).files.create({
       media: {
         mimeType: fileObject[0].mimeType,
