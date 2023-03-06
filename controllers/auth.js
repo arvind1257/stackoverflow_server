@@ -35,8 +35,7 @@ export const login = async(req,res) => {
         }
         let questions=1;
         if(ex.type=="Silver") questions=5;
-        else if(ex.type=='Gold') questions=-1; 
-
+        else if(ex.type=='Gold') questions=-1;
 
         let date1= new Date(ex.paymentReceipt.month)
         let date2= new Date()
@@ -44,12 +43,11 @@ export const login = async(req,res) => {
         if(checkDate(date1,date2,30)){
             ex = await User.findByIdAndUpdate(ex._id,{$set :{'Questions':{'noOfPost':1,'postDate':new Date()},'paymentReceipt':null,'type':"FREE"}},{new:true})
         }
-    
-            date1= new Date(ex.Questions.postDate)
-            if(checkDate(date1,date2,1)){
-                ex = await User.findByIdAndUpdate(ex._id,{$set :{'Questions':{'noOfPost':questions,'postDate':new Date()},'otp':otp}},{new:true})
-            }
-                
+        date1= new Date(ex.Questions.postDate)
+        if(checkDate(date1,date2,1)){
+            ex = await User.findByIdAndUpdate(ex._id,{$set :{'Questions':{'noOfPost':questions,'postDate':new Date()}}},{new:true})
+        }
+        ex = await User.findByIdAndUpdate(ex._id,{$set :{'otp':otp}},{new:true})        
         const token = Jwt.sign({ email:ex.email,id:ex._id},"test",{expiresIn:"1h"})
         res.status(200).json({result:ex._id,token})
     }
