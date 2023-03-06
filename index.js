@@ -15,7 +15,7 @@ app.use(Express.urlencoded({limit:"30mb",extended:true}))
 app.use(Cors());
 
 app.get('/',(req,res) => {
-    res.send("This is a Expense Tracker Server ")
+    res.send("This is a StackOverflow Server ")
 })
  
 app.use('/user',userRoutes);

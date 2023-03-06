@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "stackoverflow-379804",
+  "private_key_id": "ebda49076626aca5d7a057a89d947324aca48dd6",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDSeF2EViwhxQH7\nJxBQJ41ueC502/uV7eSOt6XS1EnoN9DXjaAPXBPb8+COcmxDAjD3ZwtwTg2gFJ6/\ncuckOAWhmdlrzCVGzqSa9qWlQTbcrj7MokNzYoElmxxnxuCBGWYgN3IfnnmQrfD0\nxFkYvNnztwWg2JkJyNfBngE3FgYcPS29roXg0yyd+yN2xz/wRQd41yIJ56sM/gXg\ndT47T5B9iWJQ3THdMNiVFUYthi/xnw4oO9Ob4B3btwO1Q4WkC3LthwSn3OjlGu22\n1BRuhDnK+dKcbb3wGAzHYZsIWGdDwrz1i0py2/A9RAADVKpMSUaqbrbBoRafNs65\n5u7anIDtAgMBAAECggEAEWeRuC1WFe7QNKAs2awDppR6pwBABEx5X5HxPQeAGxtu\ngjy8dTi0jbZTpgPxTvNB8FuNlxplRw0deZB7a8PUN2JdF+x4Uqwo8YWe+hTz//jK\nyapLcKG/M0hp520LSLG8f8KGBfZZcCzqJZuNEJ4hWeWTKhNvSF9a9DBoQlFobPI9\nwyUjDvIsV/R4GBl09B3bSPQwdwASNe5YC+EwnOs+VespH8gpwkzCFfMad5+BHZo7\nK93uF+gQIULsfjVFnn1HWI/kw5VibKow56cSWAXBvy2a52Jj8Qy+8vk6ohvPDNzP\nRU9n4HYczvQqeDav6obdKTG+bis+2Us6VmeKH6ivcwKBgQD0G6QWLBBtYj0d16vI\nT9anwlcdMWeVGat1pLG5cCWBilBqMKqWym93O+1IEN1wmYc5LwLAo2hjXhl1JgIe\nOS5jdhB+BZXTZnXO04oau5hUmn03TbjhiZp7pzbR77A0uKjHnlaatVIIpUl5/QuK\nFACIUg1/m0BR2fuz/4UqCPOsuwKBgQDcuTcW03ozgDKBcxqROb9Lk0lGeOo3iSe4\nfgaedjEn0AgBmXb0nMfVYC+B2EL247t+nrZfJc7Ct9seOWPZCIVxod7PNuCyoC19\ndp8qzBIAry7TzZ4yCyYz0pJ9K7hGKYRIPFHYrWhmqFjuEcG9LYA86d+pm98OMr7v\nqlnO3v1CdwKBgQCiB5rh8Luyr2ub3GU03/G+htvmD74OlOxfeUNSsGLk2ldINSd2\nUcatIUT9+dvSesXsKg0sqwqGMpa5UNJFF3V4JY0K6VAq8y6ta3KXDgAt4CHPTLK0\nWe8FttdHgE64n/3ACpS3ujVKcdQUuecn7uDvm29ETVvjOMq/DpNodGqyMwKBgQDX\nmdPF6CylwcOTzutUkCPbnrMks1eVh9PU0sWEY88AJKSta0pXBg3sz1eYbbZ7k1fC\nByX9KuEcMptGmqh9h2VR6dvKbMBvuya0Nvqiw1OSd4w2N9Me7uUSGc4dlmcZodQk\n+0a3cCtam3bClXW5ZIiu94QSGL95DviTAsNW31pjYQKBgQCK3nm/mopuA5whthwc\nomU8gqW1Lyf2mMy2frHNxUlK5wdUZJmj5jVSsiXb3+PsjpTFWTVZeVCDKG9s7FkJ\ng0KdF+WApSY0Laesa5EB5QGRvZobxs1Ajb4Qrkn4+UWUfsuQw8YGvNEuGvy1dZfE\nmpfb7dYWJ8qUJT/+Uijqaok/AQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "stackoverflow@stackoverflow-379804.iam.gserviceaccount.com",
+  "client_id": "102663931693255515124",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/stackoverflow%40stackoverflow-379804.iam.gserviceaccount.com"
+}

@@ -1,6 +1,7 @@
 import Posts from "../modules/posts.js"
-import multer from "multer"
 import path from "path"
+import { Stream } from "stream"
+import { google } from "googleapis"
 
 export const uploadPosts = async(req,res) => {
     const {_id,name,content,file,fileType} = req.body
@@ -22,37 +23,46 @@ export const getPosts = async(req,res) => {
         console.log(err)
     }
 }
+ 
+const KEYFILEPATH = path.join(process.cwd(), "credentials.json");
+const SCOPES = ["https://www.googleapis.com/auth/drive"];
 
-const storage = multer.diskStorage({
-    destination: path.join(process.cwd(), '../client/src/assests', 'posts'),
-    filename: function (req, file, cb) {   
-        // null as first argument means no error
-        cb(null, Date.now() + '-' + file.originalname )  
-    }
-})
+const auth = new google.auth.GoogleAuth({
+    keyFile: KEYFILEPATH,
+    scopes: SCOPES,
+});
+
 
 export const uploadMedia = async(req,res) => {
-    try{
-        let upload = multer({ storage: storage}).single('avatar');
-        upload(req, res, function(err) {
-            if (!req.file) {
-                return res.send('Please select an image to upload');
-            }
-            else if (err instanceof multer.MulterError) {
-                return res.send(err);
-            }
-            else if (err) {
-                return res.send(err);
-            }
-            else
-            return res.status(200).json(req.file.filename)
-        })
-        
-    } 
-    catch(err){
-        console.log(err)
-    }
+    try {
+        const { files } = req;
+        const id = await uploadFile(files);
+        res.status(200).send(id);
+      } catch (f) {
+        res.send(f.message);
+      }
 }
+
+const uploadFile = async (fileObject) => {
+    const bufferStream = new Stream.PassThrough();
+    bufferStream.end(fileObject[0].buffer);
+    console.log(fileObject[0])
+    const { data } = await google.drive({ version: "v3", auth }).files.create({
+      media: {
+        mimeType: fileObject[0].mimeType,
+        body: bufferStream,
+      },
+      requestBody: {
+        name: fileObject[0].originalname,
+        mimeType:fileObject[0].mimeType,
+        parents: ["1lx8cBOi3Dpoub4vmVxPJSs5uKs6uciT7"],
+      },
+      fields: "name,id",
+    });
+    console.log(data)
+    console.log(`Uploaded file ${data.name} ${data.id}`);
+    return data.id
+  };
 
 export const setLikes = async(req,res) => {
     const {_id,type,userId} = req.body
