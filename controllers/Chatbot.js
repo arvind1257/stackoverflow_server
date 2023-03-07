@@ -8,7 +8,7 @@ import * as dotenv from 'dotenv'
 dotenv.config()
 
 const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: "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",
 });
 
 const openai = new OpenAIApi(configuration);
@@ -17,13 +17,10 @@ export const ChatbotAnswer = async(req,res) => {
     const { input:prompt } = req.body;
     try {
         const response = await openai.createCompletion({
-            model: "code-cushman-001",
+            model: "text-davinci-003",
             prompt: `${prompt}`,
-            temperature: 0,
-            max_tokens: 1000,
-            top_p: 1,
-            frequency_penalty: 0,
-            presence_penalty: 0,
+            max_tokens: 2048,
+            temperature: 1,
         });
         res.status(200).send({
             bot: response.data.choices[0].text
